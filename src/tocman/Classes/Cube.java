@@ -25,11 +25,16 @@ public class Cube extends Square {
 
     @Override
     public String toString() {
-        return "Cube:" +
-                "\n\tside = " + side +
-                "\n\tarea = " + getArea(side)*6 +
-                "\n\tperimeter = " + getPerimeter(side)*3 +
-                "\n\tdiagonal = " + getDiagonal(side)*Math.sqrt(3)/Math.sqrt(2) +
-                "\n\tvolume = " + getVolume(side);
+            String str;
+            if(this.side!=0) {
+                        str = "Cube:" + "\n\tside = " + side +
+                        "\n\tarea = " + getArea(side) * 6 +
+                        "\n\tperimeter = " + getPerimeter(side) * 3 +
+                        "\n\tdiagonal = " + getDiagonal(side) * Math.sqrt(3) / Math.sqrt(2) +
+                        "\n\tvolume = " + getVolume(side);
+            }
+            else
+                str="Cube: \n\tside = 0";
+            return str;
     }
 }

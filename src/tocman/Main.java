@@ -39,6 +39,8 @@ class Main {
             if(maxArea==cube.getArea(sideCubes[i]))
                 countMaxArea++;
         }
+        if(quantitySquares==0)
+            quantitySquares=1;
         System.out.println("\nСредняя площадь квадратов: "+ (averageArea/quantitySquares) +"" +
                 "           \nКол-во кубов с наибольшей площадью: "+countMaxArea);
     }

@@ -2,44 +2,50 @@ package tocman.Classes;
 
 public class Square {
 
-    private double side=0;
+    private double side = 0;
 
     public double getSide() {
         return side;
     }
 
     public void setSide(double side) {
-        this.side = side > 0 ? side:0;
+        this.side = side > 0 ? side : 0;
     }
 
-    public Square(){
+    public Square() {
     }
 
-    public Square(double side){
+    public Square(double side) {
         setSide(side);
     }
 
-    public double getArea(double side){
+    public double getArea(double side) {
         double area = side * side;
         return area;
     }
 
-    public double getPerimeter(double side){
+    public double getPerimeter(double side) {
         double perimeter = side * 4;
         return perimeter;
     }
 
-    public double getDiagonal(double side){
+    public double getDiagonal(double side) {
         double diagonal = side * Math.sqrt(2);
         return diagonal;
     }
 
     @Override
     public String toString() {
-        return "Square:" +
-                "\n\tside = " + side +
-                "\n\tarea = " + getArea(side) +
-                "\n\tperimeter = " + getPerimeter(side) +
-                "\n\tdiagonal = " + getDiagonal(side);
+        String str;
+        if (side != 0) {
+            str = "Square:" +
+                    "\n\tside = " + side +
+                    "\n\tarea = " + getArea(side) +
+                    "\n\tperimeter = " + getPerimeter(side) +
+                    "\n\tdiagonal = " + getDiagonal(side);
+        } else
+            str = "Square:" +
+                    "\n\tside = 0";
+        return str;
     }
 }
