@@ -1,4 +1,4 @@
-package tocman;
+package tocman.Classes;
 
 public class Cube extends Square {
 

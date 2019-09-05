@@ -1,5 +1,8 @@
 package tocman;
 
+import tocman.Classes.Cube;
+import tocman.Classes.Square;
+
 import java.util.Scanner;
 
 class Main {

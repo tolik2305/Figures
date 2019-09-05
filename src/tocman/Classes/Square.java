@@ -1,6 +1,6 @@
-package tocman;
+package tocman.Classes;
 
-class Square {
+public class Square {
 
     private double side=0;
 
