@@ -9,7 +9,7 @@ public class Square {
     }
 
     public void setSide(double side) {
-        this.side = side > 0 ? side:-1;
+        this.side = side > 0 ? side:0;
     }
 
     public Square(){
