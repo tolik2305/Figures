@@ -1,12 +1,11 @@
 package tocman.Classes;
 
+import lombok.Getter;
+
 public class Square {
 
-    private double side = 0;
+    @Getter double side=0;
 
-    public double getSide() {
-        return side;
-    }
 
     public void setSide(double side) {
         this.side = side > 0 ? side : 0;

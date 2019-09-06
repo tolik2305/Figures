@@ -1,18 +1,16 @@
 package tocman.Classes;
 
+import lombok.Getter;
+
 public class Cube extends Square {
 
-    private double side=0;
+    @Getter double side=0;
 
     public Cube(double side){
         setSide(side);
     }
 
     public Cube(){
-    }
-
-    public double getSide() {
-        return side;
     }
 
     public void setSide(double side) {

@@ -2,11 +2,9 @@ package tocman;
 
 import tocman.Classes.Cube;
 import tocman.Classes.Square;
-
 import java.util.Scanner;
 
 class Main {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
