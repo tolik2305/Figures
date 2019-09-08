@@ -1,26 +1,27 @@
 package tocman.Classes;
 
 import lombok.Getter;
+import lombok.Setter;
 
 public class Square {
 
-    @Getter double side=0;
-
-
-    public void setSide(double side) {
-        this.side = side > 0 ? side : 0;
-    }
+    @Getter @Setter double side=0;
 
     public Square() {
     }
 
     public Square(double side) {
-        setSide(side);
+        this.side=side;
     }
 
     public double getArea(double side) {
         double area = side * side;
         return area;
+    }
+
+    public double getArea(double side, int quantitySides){
+        double area = side * side * quantitySides;
+        return  area;
     }
 
     public double getPerimeter(double side) {

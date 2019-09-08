@@ -1,20 +1,17 @@
 package tocman.Classes;
 
 import lombok.Getter;
+import lombok.Setter;
 
 public class Cube extends Square {
 
-    @Getter double side=0;
+    @Getter @Setter double side=0;
 
     public Cube(double side){
-        setSide(side);
+        this.side=side;
     }
 
     public Cube(){
-    }
-
-    public void setSide(double side) {
-        this.side = side > 0 ? side:0;
     }
 
     private double getVolume(double side){
@@ -26,7 +23,7 @@ public class Cube extends Square {
             String str;
             if(this.side!=0) {
                         str = "Cube:" + "\n\tside = " + side +
-                        "\n\tarea = " + getArea(side) * 6 +
+                        "\n\tarea = " + getArea(side, 6) +
                         "\n\tperimeter = " + getPerimeter(side) * 3 +
                         "\n\tdiagonal = " + getDiagonal(side) * Math.sqrt(3) / Math.sqrt(2) +
                         "\n\tvolume = " + getVolume(side);
