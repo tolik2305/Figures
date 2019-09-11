@@ -72,11 +72,11 @@ class Main {
             if(maxArea==cube.getArea(sideCubes[i]))
                 countMaxArea++;
         }
-            double averageAreaSquares = 0;
-            if (quantitySquares != 0)
-                averageAreaSquares = averageArea/quantitySquares;
-            System.out.println("\nСредняя площадь квадратов: " + averageAreaSquares + "" +
-                    "           \nКол-во кубов с наибольшей площадью: " + countMaxArea);
+        double averageAreaSquares = 0;
+        if (quantitySquares != 0)
+            averageAreaSquares = averageArea/quantitySquares;
+        System.out.println("\nСредняя площадь квадратов: " + averageAreaSquares + "" +
+                "           \nКол-во кубов с наибольшей площадью: " + countMaxArea);
     }
 
     public static boolean isCorrect(String str){
@@ -85,7 +85,7 @@ class Main {
             if (Character.isLetter(str.charAt(i)) || Double.parseDouble(str) <= 0)
                 isNotCorrectly = true;
         }
-    return isNotCorrectly;
+        return isNotCorrectly;
     }
 
     public static boolean isCorrect(String str, int num){
