@@ -88,10 +88,8 @@ class Main {
             }
         }
         else {
-            for (int i=0;i<input.length();i++){
-                if (input.matches("[^0-9]")){
-                    return false;
-                }
+            if (input.matches("[^0-9]")){
+                return false;
             }
         }
         return true;
