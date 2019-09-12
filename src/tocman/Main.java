@@ -45,7 +45,6 @@ class Main {
 
         System.out.println("Средняя площадь квадратов: "+floatFormat(squares.getAverageArea()));
 
-
         int quantityCubes=0;
         isCorrectly=false;
         while(!isCorrectly) {
