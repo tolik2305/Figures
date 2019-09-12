@@ -1,99 +1,99 @@
 package tocman;
 
-import tocman.Classes.Cube;
-import tocman.Classes.Square;
+import tocman.classes.Cube;
+import tocman.classes.Cubes;
+import tocman.classes.Square;
+import tocman.classes.Squares;
 
+import java.util.Locale;
 import java.util.Scanner;
+
+import static tocman.classes.FuncUtils.floatFormat;
 
 class Main {
     public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
         Scanner scanner = new Scanner(System.in);
         int quantitySquares = 0;
-        double averageArea = 0;
-        boolean isNotCorrect = true;
-        while(isNotCorrect) {
+        boolean isCorrectly = false;
+        while(!isCorrectly) {
             System.out.println("Введите кол-во квадратов: ");
             String str1 = scanner.next();
-            isNotCorrect = isCorrect(str1, 1);
-            if(!isNotCorrect)
+            isCorrectly = isCorrect(str1, true);
+            if(isCorrectly) {
                 quantitySquares = Integer.parseInt(str1);
-            else
+            }
+            else {
                 System.out.println("Введите целое число которое больше нуля!!!");
+            }
         }
-        double[] sideSquare = new double[quantitySquares];
-        for (int i=0; i < quantitySquares; i++){
+        Squares squares = new Squares(quantitySquares);
+        int i = 0;
+        do {
             System.out.println("Введите сторону квадрата " + (i + 1) +": ");
             String str2 = scanner.next();
-            isNotCorrect = isCorrect(str2);
-            if(!isNotCorrect)
-                sideSquare[i] =  Double.parseDouble(str2);
+            isCorrectly = isCorrect(str2, false);
+            if(isCorrectly) {
+                squares.setSquare(new Square(Double.parseDouble(str2)), i);
+                System.out.println(squares.getSquare(i) + "\n");
+                i++;
+            }
             else{
                 System.out.println("Введите число которое больше нуля!!!");
-                i--;
-                continue;
             }
-            Square square = new Square(sideSquare[i]);
-            System.out.println(square.toString() + '\n');
-            averageArea+=square.getArea(sideSquare[i]);
-        }
+        }while (i < quantitySquares);
+
+        System.out.println("Средняя площадь квадратов: "+floatFormat(squares.getAverageArea()));
+
 
         int quantityCubes=0;
-        isNotCorrect=true;
-        while(isNotCorrect) {
+        isCorrectly=false;
+        while(!isCorrectly) {
             System.out.println("Введите кол-во кубов: ");
             String str3 = scanner.next();
-            isNotCorrect = isCorrect(str3, 1);
-            if(!isNotCorrect)
+            isCorrectly = isCorrect(str3, true);
+            if(isCorrectly) {
                 quantityCubes = Integer.parseInt(str3);
-            else
+            }
+            else {
                 System.out.println("Введите целое число которое больше нуля!!!");
+            }
         }
 
-        double[] sideCubes = new double[quantityCubes];
-        double maxArea = 0;
-        int countMaxArea = 0;
-        for (int i=0; i < quantityCubes; i++){
+        Cubes cubes = new Cubes(quantityCubes);
+        i=0;
+        do{
             System.out.println("Введите сторону куба " + (i + 1) +": ");
             String str4 = scanner.next();
-            isNotCorrect = isCorrect(str4);
-            if(!isNotCorrect)
-                sideCubes[i] =  Double.parseDouble(str4);
+            isCorrectly = isCorrect(str4, false);
+            if(isCorrectly) {
+                cubes.setCube(new Cube(Double.parseDouble(str4)), i);
+                System.out.println(cubes.getCube(i) + "\n");
+                i++;
+            }
             else {
                 System.out.println("Введите число которое больше нуля!!!");
-                i--;
-                continue;
             }
-            Cube cube = new Cube(sideCubes[i]);
-            System.out.println(cube.toString() + '\n');
-            if(cube.getArea(sideCubes[i])>maxArea) {
-                maxArea = cube.getArea(sideCubes[i]);
-                countMaxArea=0;
-            }
-            if(maxArea==cube.getArea(sideCubes[i]))
-                countMaxArea++;
-        }
-        double averageAreaSquares = 0;
-        if (quantitySquares != 0)
-            averageAreaSquares = averageArea/quantitySquares;
-        System.out.println("\nСредняя площадь квадратов: " + averageAreaSquares + "" +
-                "           \nКол-во кубов с наибольшей площадью: " + countMaxArea);
+        }while(i < quantityCubes);
+
+        System.out.println("Кубов с наибольшей площадью: " + cubes.getQuantityMaxArea());
     }
 
-    public static boolean isCorrect(String str){
-        boolean isNotCorrectly = false;
-        for (int i = 0; i < str.length(); i++) {
-            if (Character.isLetter(str.charAt(i)) || Double.parseDouble(str) <= 0)
-                isNotCorrectly = true;
+    private static boolean isCorrect(String input, boolean isQuantity){
+        if (isQuantity) {
+            for (char str : input.toCharArray()) {
+                if (!Character.isDigit(str)) {
+                    return false;
+                }
+            }
         }
-        return isNotCorrectly;
-    }
-
-    public static boolean isCorrect(String str, int num){
-        boolean isNotCorrectly = false;
-        for (int i = 0; i < str.length(); i++) {
-            if (Character.isLetter(str.charAt(i)) || Double.parseDouble(str) <= 0||((Double.parseDouble(str)%num)!=0))
-                isNotCorrectly = true;
+        else {
+            for (int i=0;i<input.length();i++){
+                if (input.matches("[^0-9]")){
+                    return false;
+                }
+            }
         }
-        return isNotCorrectly;
+        return true;
     }
 }
