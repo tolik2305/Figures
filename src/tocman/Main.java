@@ -89,7 +89,7 @@ class Main {
         }
         else {
             if (input.matches("[^0-9]")){
-                return false;;
+                return false;
             }
         }
         return true;
