@@ -37,7 +37,7 @@ public class Cubes {
     /**
      * Кол-во кубов с наибольшей площадью
      */
-    public int getQuantityMaxArea(){
+    public int getQuantityMaxArea(){;
         double maxArea = 0;
         int countMaxArea = 0;
         for (final ClassCube classCube : classCubes){
