@@ -5,45 +5,74 @@ import lombok.Setter;
 
 import static tocman.classes.FuncUtils.floatFormat;
 
+/**
+ * Класс Square для квадрата
+ */
 public class Square {
 
-    @Getter @Setter double side;
+    /**
+     * Сторона квадрата
+     * @param side
+     */
+    @Getter @Setter private double side;
 
-    private final double SIDES = 4;
+    /**
+     * Кол-во сторон в квадрате
+     * @param SIDES
+     */
+    private static final double SIDES = 4;
 
-    public Square() {
+    /**
+     * Пустой конструктор для квадрата
+     */
+    Square() {
         this.side=0;
     }
 
-    public Square(double side) {
+    /**
+     * Конструктор с параметром сторона
+     * @param side сторона квадрата
+     */
+    public Square(final double side) {
         this.side = side>0?side:0;
     }
 
+    /**
+     * Нахождение площади Квадрата
+     */
     public double getArea(){
         return this.side * this.side;
     }
 
+    /**
+     * Нахождение периметра квадрата
+     */
     double getPerimeter() {
         return this.side * SIDES;
     }
 
+    /**
+     * Нахождение диагонали квадрата
+     */
     double getDiagonal() {
         return side * Math.sqrt(2);
     }
 
+    /**
+     * Вывод результатов на экран
+     */
     @Override
     public String toString() {
         String str;
-        if (this.side != 0) {
-            str = "Square:" +
-                    "\n\tside = " + floatFormat(this.side) +
+        str = this.side != 0 ?         // Тернарный оператор
+                    "Square:" +
+                    "\n\tside = " + this.side +
                     "\n\tarea = " + floatFormat(getArea()) +
                     "\n\tperimeter = " + floatFormat(getPerimeter()) +
-                    "\n\tdiagonal = " + floatFormat(getDiagonal());
-        } else {
-            str = "Square:" +
+                    "\n\tdiagonal = " + floatFormat(getDiagonal())
+                    :
+                    "Square:" +
                     "\n\tside = 0";
-        }
         return str;
     }
 }

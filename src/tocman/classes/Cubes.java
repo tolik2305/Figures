@@ -1,31 +1,52 @@
 package tocman.classes;
 
+/**
+ * Класс для инициализации кубов
+ */
 public class Cubes {
 
-    public Cube getCube(int index) {
-        return cubes[index];
+    /**
+     * Индекс куба в массиве
+     * @param index индекс куба
+     */
+    public ClassCube getCube(final int index) {
+        return classCubes[index];
     }
 
-    public void setCube(Cube cubes, int index) {
-        this.cubes[index] = cubes;
+    /**
+     * Куб с индексом
+     * @param cubes это наш ClassCube в котором
+     * @param index индекс куба
+     */
+    public void setCube(final ClassCube cubes, final int index) {
+        this.classCubes[index] = cubes;
     }
 
-    private Cube[] cubes;
+    /**
+     * Массив кубов
+     */
+    private final ClassCube[] classCubes;
 
-    public Cubes(int quantity){
-        cubes = new Cube[quantity];
+    /**
+     * @param quantity кол-во кубов
+     */
+    public Cubes(final int quantity){
+        classCubes = new ClassCube[quantity];
     }
 
+    /**
+     * Кол-во кубов с наибольшей площадью
+     */
     public int getQuantityMaxArea(){
         double maxArea = 0;
         int countMaxArea = 0;
-        for (Cube cube: cubes){
-            if(maxArea<cube.getArea()){
-                maxArea=cube.getArea();
+        for (final ClassCube classCube : classCubes){
+            if(maxArea< classCube.getArea()){
+                maxArea= classCube.getArea();
             }
         }
-        for (Cube cube: cubes){
-            if(maxArea==cube.getArea()){
+        for (final ClassCube classCube : classCubes){
+            if(maxArea== classCube.getArea()){
                 countMaxArea++;
             }
         }

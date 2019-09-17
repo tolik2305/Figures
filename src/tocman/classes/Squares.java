@@ -1,24 +1,45 @@
 package tocman.classes;
 
+/**
+ * Класс для инициализации квадратов
+ */
 public class Squares {
 
-    public Square getSquare(int index) {
+    /**
+     *
+     * @param index индекс квадрата
+     */
+    public Square getSquare(final int index) {
         return squares[index];
     }
 
-    public void setSquare(Square square, int index) {
+    /**
+     * @param square класс Square
+     * @param index индекс квадрата
+     */
+    public void setSquare(final Square square, final int index) {
         this.squares[index] = square;
     }
 
-    private Square[] squares;
+    /**
+     * Массив квадратов
+     */
+    private final Square[] squares;
 
-    public Squares(int quantity){
+    /**
+     * Кол-во квадратов
+     * @param quantity кол-во квадратов
+     */
+    public Squares(final int quantity){
         squares = new Square[quantity];
     }
 
+    /**
+     * Средняя площадь квадратов
+     */
     public double getAverageArea(){
         double area = 0;
-        for (Square square:squares){
+        for (final Square square:squares){
             area += square.getArea();
         }
         return area/squares.length;
