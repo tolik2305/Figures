@@ -90,6 +90,7 @@ class ClassMain {
 
     private static boolean isCorrect(final String input, final boolean isQuantity){
         boolean isCorrectly = true;
+
         if (isQuantity) {
             for (final char str : input.toCharArray()) {
                 if (!Character.isDigit(str)) {
