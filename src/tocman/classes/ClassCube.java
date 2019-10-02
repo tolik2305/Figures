@@ -24,23 +24,21 @@ public class ClassCube extends Square {
      * Конструктор на 1 параметр
      */
     public ClassCube(final double side){
-        super(side>0?side:0);
-        this.side=side>0?side:0;
+        super(side);
     }
 
     /**
      * Пустой конструктор
      */
     public ClassCube(){
-        super(0);
-        this.side = 0;
+        super();
     }
 
     /**
      * Нахождение объёма куба
      */
     private double getVolume(){
-        return super.getArea() * this.side;
+        return super.getArea() * super.getSide();
     }
 
     /**
@@ -57,8 +55,8 @@ public class ClassCube extends Square {
     @Override
     public String toString() {
             String str;
-            str = this.side!=0 ?                     // тернарный оператор
-                        "Cube:" + "\n\tside = " + side +
+            str = super.getSide()!=0 ?                     // тернарный оператор
+                        "Cube:" + "\n\tside = " + super.getSide() +
                         "\n\tarea = " + floatFormat(getArea()) +
                         "\n\tperimeter = " + floatFormat(getPerimeter() * 3) +
                         "\n\tdiagonal = " + floatFormat(getDiagonal() * Math.sqrt(3) / Math.sqrt(2)) +

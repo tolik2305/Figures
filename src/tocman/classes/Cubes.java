@@ -46,7 +46,7 @@ public class Cubes {
             }
         }
         for (final ClassCube classCube : classCubes){
-            if(maxArea== classCube.getArea()){
+            if(Math.abs(maxArea - classCube.getArea())<Math.pow(10, -10)){
                 countMaxArea++;
             }
         }
